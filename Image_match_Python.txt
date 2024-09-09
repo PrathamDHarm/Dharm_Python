@@ -1,0 +1,61 @@
+import cv2
+import numpy as np
+
+# Check OpenCV version
+print("OpenCV version:", cv2.__version__)
+
+# Initialize the camera
+camera = cv2.VideoCapture(0)  # 0 is typically the default camera
+
+# Check if the camera opened successfully
+if not camera.isOpened():
+    print("Error: Could not open camera.")
+    exit()
+
+# Set a window name
+window_name = "Camera"
+
+# Create a loop to keep the camera open until you take a picture
+while True:
+    # Capture frame-by-frame
+    ret, frame = camera.read()
+
+    # If the frame was captured correctly
+    if not ret:
+        print("Error: Could not read frame.")
+        break
+
+    # Display the resulting frame
+    cv2.imshow(window_name, frame)
+
+    # Wait for user input to take a picture or quit
+    key = cv2.waitKey(1)
+
+    # Press 's' to save the picture
+    if key == ord('s'):
+        # Define the filename and save the image
+        image_name = "captured_image_1.png"
+        cv2.imwrite(image_name, frame)
+        print(f"Picture saved as {image_name}")
+    
+    # Press 'q' to quit the camera
+    elif key == ord('q'):
+        break
+
+# When everything is done, release the camera and close the window
+camera.release()
+cv2.destroyAllWindows()
+
+# Load the images
+img0 = cv2.imread("captured_image_0.png", cv2.IMREAD_GRAYSCALE)
+img1 = cv2.imread("captured_image_1.png", cv2.IMREAD_GRAYSCALE)
+
+# Check if the images are loaded correctly
+if img0 is None or img1 is None:
+    print("Error: One or both images not loaded correctly.")
+else:
+    # Compare the images using numpy's array_equal method
+    if np.array_equal(img0, img1):
+        print("Images are identical")
+    else:
+        print("Images are not identical")

@@ -1,0 +1,40 @@
+class Foods:
+    def __init__(self):
+        # Store prices in a dictionary
+        self.prices = {
+            'Pizza': 40,
+            'Pasta': 50,
+            'Burger': 60,
+            'Salad': 70,
+            'Coffee': 80
+        }
+
+    def calculate_price(self, item, quantity):
+        if item in self.prices:
+            total_price = self.prices[item] * quantity
+            return total_price
+        else:
+            return None
+
+food = Foods()
+total_price = 0
+
+while True:
+    print("Coffee: Rs80 \nPizza: Rs40 \nPasta: Rs50 \nSalad: Rs70 \nBurger: Rs60")
+    order = input("Enter your Item Name (or 'Exit' to quit): ").capitalize()
+    
+    if order == 'Exit':
+        print(f"Total Price: Rs{total_price}")
+        print("Thank you for your order!")
+        break
+    
+    if order in food.prices:
+        q = int(input("Quantity: "))
+        price = food.calculate_price(order, q)
+        if price is not None:
+            total_price += price
+            print(f"Added {order}: Quantity: {q} || Price: Rs{price}")
+        else:
+            print("Item not found")
+    else:
+        print("Invalid Option")

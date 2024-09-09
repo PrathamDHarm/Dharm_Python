@@ -1,0 +1,29 @@
+import tkinter as tk
+import random
+
+def on_button_toggle():
+    # Generate a new random value each time the Checkbutton is toggled
+    new_value = random.randint(1, 10)
+    checkbutton.config(onvalue=new_value)
+    print("Generated new x (onvalue): ", new_value)
+    print("Checkbutton value: ", var.get())
+
+root = tk.Tk()
+
+var = tk.IntVar()
+
+# Initial setup for the Checkbutton with a random onvalue
+initial_value = random.randint(1, 10)
+print("Initial x (onvalue): ", initial_value)
+
+checkbutton = tk.Checkbutton(root, text="Enable Feature", variable=var, 
+                             onvalue=initial_value, offvalue=0, command=on_button_toggle)
+
+# Setting options for the Checkbutton
+checkbutton.config(bg="lightgrey", fg="blue", font=("Arial", 12), 
+                   selectcolor="green", relief="raised", padx=10, pady=5)
+
+# Placing the Checkbutton in the window
+checkbutton.pack(padx=40, pady=40)
+
+root.mainloop()
