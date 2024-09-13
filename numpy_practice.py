@@ -123,3 +123,12 @@ print("------------------------------------------------")
 # Create a 1D array and search for the index where a value would be inserted to maintain order
 a = np.array([1, 2, 5, 4, 3, 6, 7, 8])
 print(np.searchsorted(a, 3, side='right'))  # Finds index where 3 would be inserted to maintain order
+
+print("------------------------------------------------")
+print("------------------------------------------------")
+
+# Initialize a list
+my_list = [1, 2, 3, 4, 5]
+my_list[0],my_list[-1]=my_list[-1],my_list[0]
+
+print(my_list)

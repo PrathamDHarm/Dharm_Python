@@ -1,3 +1,5 @@
+import time
+
 #dict1 = {1: "Python", 2: "Java", 3: "Ruby", 4: "Scala"}
 #dict2 = dict1.copy()
 #print(dict2)
@@ -23,7 +25,10 @@ sorted_items = sorted(myDict.items(), key=lambda item: item[1], reverse=False)
 # Print the keys in the order of sorted values
 for key, value in sorted_items:
     print(key, value)
-print("------------------------------------------------------------------------")
+
+time.sleep(3)
+print("-------------------Functions in Python-----------------------------------")
+
 
 # Function calling
 def dictionary():
@@ -38,9 +43,9 @@ def dictionary():
     key_value[6] = 18
     key_value[3] = 323
 
-    print("Task 1:-\n")
 
-    print("key_value", key_value)
+    print("Input Order of key_value", key_value)
+    print("Sorted By Values: \n")
     
     # iterkeys() returns an iterator over the
     # dictionary’s keys.
@@ -57,7 +62,9 @@ def main():
 if __name__ == "__main__":
     main()
 
-print("------------------------------------------------------------------------")
+time.sleep(3)
+print("-------------------------Sorted Dictionary In Python--------------------")
+
 
 # Creates a sorted dictionary (sorted by key)
 from collections import OrderedDict
@@ -65,16 +72,16 @@ import numpy as np
 
 dict = {'ravi': 10, 'rajnish': 9,
         'sanjeev': 15, 'yash': 2, 'suraj': 32}
-print(dict)
+print("Original Dictionary: \n",dict)
 
 keys = list(dict.keys())
 values = list(dict.values())
 sorted_value_index = np.argsort(values)
 sorted_dict = {keys[i]: values[i] for i in sorted_value_index}
 
-print(sorted_dict)
-
-print("------------------------------------------------------------------------")
+print("After Sorted: \n",sorted_dict)
+time.sleep(3)
+print("-----------------------------Decorative In Python------------------------")
 
 #Decorative P1
 def stars(func):
@@ -91,15 +98,16 @@ def adding(a=2, b=2):
     return a + b  # Return the sum
 
 adding()  # Call the decorated function
+time.sleep(3)
+print("-----------------------------Decorative In Python------------------------")
 
-print("------------------------------------------------------------------------")
 
 #Decorative P2
 
 def dec(func):
-    def st(*args, **kwargs):
+    def st(*args):
         print("$"*5)
-        res=func(*args, **kwargs)
+        res=func(*args)
         print(f"Welcome {res}")
         print("$"*5)
     return st
@@ -110,12 +118,13 @@ def printssss(x):
 
 x=input("Enter the name: ")
 printssss(x)
+time.sleep(3)
+print("--------------------------OrderedDict() in Python------------------------")
 
-print("------------------------------------------------------------------------")
 
 #Collections
 from collections import Counter
-l=['A','B','A','C','D']
+l=['A','B','A','C','D','F','E','E']
 print(Counter(l))
 
 # A Python program to demonstrate working
@@ -142,23 +151,24 @@ od['d'] = 4
 
 #deleting the specified element
 od.pop('a')
+print("a=1 is been deleted")
 
 #re-inserting the element
 od['a']=9
+print("a=9 is inserted")
 
 #printing the updated values
 for key, value in od.items(): 
     print(key, value)
-
-print("------------------------------------------------------------------------")
+time.sleep(3)
+print("--------------------ChainMap dictionaries in Python----------------------")
 # Python program to demonstrate 
 # ChainMap dictionaries all in one 
    
    
-from collections import ChainMap,Counter
-   
-   
-d1 = {'a': 1, 'b': 2}
+from collections import ChainMap,Counter   
+d1 = ['a', 'b','b']
+d1=Counter(d1)
 
 
 
@@ -171,8 +181,9 @@ print("Before Adding:\n",c)
 
 c=c.new_child(l)
 print("After adding:\n",c)
+time.sleep(3)
 
-print("------------------------------------------------------------------------")
+print("------------------------namedtuple() in Python--------------------------")
 
 # Python code to demonstrate namedtuple()
   
@@ -193,8 +204,8 @@ print (S.age)
 # Access using name  
 print ("The Student name using keyname is : ",end ="") 
 print (S.name)
-
-print("------------------------------------------------------------------------")
+time.sleep(3)
+print("-------------------Append (Left or Default) in Python-------------------")
 
 from collections import deque
 
@@ -215,7 +226,7 @@ l.pop()  # Remove and return the end element ('C')
 
 # The deque is now: deque(['A', 'B', 'A', 'C', 'D'])
 print(l)
-
+time.sleep(3)
 print("------------------------------------------------------------------------")
 
 print("-----------------------Exceptions in Python-----------------------------")
@@ -228,7 +239,8 @@ while True:
         break
     except ArithmeticError:
         print("Invalid Input. Input should be integer")
-    
+
+time.sleep(3)
 print("----------------------Inheritance in Python-----------------------------")
 
 class Parent:
@@ -262,6 +274,7 @@ for i in myTuple:
 #for i in range (len(myTuple)):
 #    print(myTuple[i])
 
+time.sleep(3)
 print("----------------------Polymorphism in Python-----------------------------")
 
 class Vehicle:
@@ -292,8 +305,7 @@ for x in (car1, boat1, plane1):
   print(x.model)
   x.move()
 
-
-    
+time.sleep(3)    
 print("----------------------Password Tkinter in Python---------------------")
 
 import tkinter as tk
@@ -343,6 +355,9 @@ label1.pack(pady=10)
 # Start the Tkinter event loop
 root.mainloop()
 
+time.sleep(3)
+print("----------------------Data Types in Python---------------------")
+
 #Complex Data Type
 x=complex(3,4)
 print(x)
@@ -371,6 +386,192 @@ x=[2,344,3,3]
 x.extend(y)
 print("Using extend ",x)
       
-l1=[3, 4, 5, 20, 5, 25, 1, 3]
-l1.pop(1)
-print(l1)
+l2=[3, 4, 5, 20, 5, 25, 1, 3]
+l2.pop(1)
+print(l2)
+print(type(l2))
+
+time.sleep(3)
+print("----------------------Merge in Python---------------------")
+
+from collections import defaultdict
+
+l1=[1,2,3,4]
+l2=[34,3434,55,324]
+x=zip(l1,l2)
+y=defaultdict(list)
+
+for i,j in (x):
+    y[i].append(j)
+print(y)
+time.sleep(3)
+print("----------------------Minimum in Python---------------------")
+
+temp=min(y.values())
+res=[key for key in y if y[key] == temp]
+print(f"Key of the min value from the dict is {res}")
+
+print("-----------------------------------------------------------")
+
+if __name__ == '__main__':
+    arr = []  # Initialize an empty list
+
+    # Perform the operations as given in the input
+    arr.insert(0, 5)  # Insert 5 at index 0
+    arr.insert(1, 10)  # Insert 10 at index 1
+    arr.insert(0, 6)  # Insert 6 at index 0
+
+    print(arr)  # Print the list after insertions
+
+    arr.remove(6)  # Remove the first occurrence of 6
+    arr.append(9)  # Append 9 to the end of the list
+    arr.append(1)  # Append 1 to the end of the list
+
+    arr.sort()  # Sort the list
+    print(arr)  # Print the list after sorting
+
+    arr.pop()  # Remove the last element
+    arr.reverse()  # Reverse the list
+
+    print(arr)  # Print the list after reversing
+
+
+print("-------------------------swapcase() in Python------------------")
+
+def swap_case(x):
+    swapcase_x = x.swapcase()
+    return swapcase_x
+    
+
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
+
+print("-------------------------count string in Python------------------")
+def count_substring(string, sub_string):
+    count = start = 0
+    while True:
+        start = string.find(sub_string, start)
+        if start == -1:
+            break
+        count += 1
+        start += 1  # Move past the current match to find overlapping matches
+    return count
+
+if __name__ == '__main__':
+    string = input().strip()
+    sub_string = input().strip()
+    
+    count = count_substring(string, sub_string)
+    print(count)
+
+print("-------------------------Split & Join in Python------------------")
+def split_and_join(line):
+    # write your code here
+    words=line.split(" ")
+    x="-".join(words)
+    return x
+
+if __name__ == '__main__':
+    line = input()
+    result = split_and_join(line)
+    print(result)
+
+print("--------------------String Validations in Python------------------")
+
+if __name__ == '__main__':
+    s = input()
+    print(s.isalnum())
+    print(s.isalpha())
+    print(s.isdigit())
+    print(s.islower())
+    print(s.isupper())
+
+print("--------------------Nested List in Python------------------")
+
+if __name__ == '__main__':
+    scores = {}
+    
+    # Collecting input
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        scores[name] = score  # Store the score as a float value, not a set
+    
+    # Sort the dictionary by the scores (values)
+    sorted_scores = sorted(scores.items(), key=lambda item: item[1])
+    
+    # Find the second lowest score
+    lowest_score = sorted_scores[0][1]
+    
+    # Finding the second lowest score
+    second_lowest_score = None
+    for name, score in sorted_scores:
+        if score > lowest_score:
+            second_lowest_score = score
+            break
+    
+    # Collect all students with the second lowest score and sort them alphabetically
+    students_with_second_lowest_score = sorted([name for name, score in sorted_scores if score == second_lowest_score])
+    
+    # Print the students with the second lowest score
+    for student in students_with_second_lowest_score:
+        print(student)
+#Input
+
+#5
+#Harry
+#37.21
+#Berry
+#37.21
+#Tina
+#37.2
+#Akriti
+#41
+#Harsh
+#39
+
+
+print("--------------------String Mutations in Python------------------")
+
+def mutate_string(string, position, character):
+    x=string[:position]+character+string[position+1:]
+    return x
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)
+
+#Input:
+#abracadabra
+#5 k
+
+print("--------------------Capitalize in Python------------------")
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the solve function below.
+def solve(s):
+    return ' '.join([word.capitalize() for word in s.split(' ')])
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = solve(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
+
+#hello world
