@@ -205,6 +205,7 @@ print (S.age)
 print ("The Student name using keyname is : ",end ="") 
 print (S.name)
 time.sleep(3)
+
 print("-------------------Append (Left or Default) in Python-------------------")
 
 from collections import deque
@@ -226,6 +227,12 @@ l.pop()  # Remove and return the end element ('C')
 
 # The deque is now: deque(['A', 'B', 'A', 'C', 'D'])
 print(l)
+
+#Output
+#Default append() (right):  ['A', 'B', 'A', 'C', 'D', 'C']
+#Using appendleft():  deque([22, 'A', 'B', 'A', 'C', 'D', 'C'])
+#To delete
+#deque(['A', 'B', 'A', 'C', 'D'])
 time.sleep(3)
 print("------------------------------------------------------------------------")
 
@@ -575,3 +582,174 @@ if __name__ == '__main__':
     fptr.close()
 
 #hello world
+
+
+print("--------------------Text Wrapper in Python------------------")
+import textwrap 
+
+value = """This function returns the answer as STRING and not LIST."""
+
+# Wrap this text. 
+wrapper = textwrap.TextWrapper(width=4) 
+
+string = wrapper.fill(text=value) 
+
+print (string)
+
+print("--------------------Text Alignment in Python------------------")
+
+thickness = int(input())  # This must be an odd number
+c = 'H'
+
+# Top Cone
+for i in range(thickness):
+    print((c * i).rjust(thickness - 1) + c + (c * i).ljust(thickness - 1))
+
+# Top Pillars
+for i in range(thickness + 1):
+    print((c * thickness).center(thickness * 2) + (c * thickness).center(thickness * 6))
+
+# Middle Belt
+for i in range((thickness + 1) // 2):
+    print((c * thickness * 5).center(thickness * 6))
+
+# Bottom Pillars
+for i in range(thickness + 1):
+    print((c * thickness).center(thickness * 2) + (c * thickness).center(thickness * 6))
+
+# Bottom Cone
+for i in range(thickness):
+    print(((c * (thickness - i - 1)).rjust(thickness) + c + (c * (thickness - i - 1)).ljust(thickness)).rjust(thickness * 6))
+
+
+print("--------------------Find 2nd Largest Number in Python------------------")
+
+n=int(input())
+arr = map(int,input().split())
+arr=list(set(arr))
+arr.sort()
+print(arr[-2])
+
+
+print("--------------------Canides in Python------------------")
+
+
+class Solution(object):
+    def kidsWithCandies(self, candies, extraCandies):
+        """
+        :type candies: List[int]
+        :type extraCandies: int
+        :rtype: List[bool]
+        """
+        max_candies = max(candies)  # Find the maximum number of candies any kid has
+        result = []  # List to store the result for each kid
+        
+        for candy in candies:
+            # Check if the current kid can have the greatest number of candies
+            result.append(candy + extraCandies >= max_candies)
+        
+        return result  # Return the result list
+
+# Example usage
+if __name__ == '__main__':
+    candies = [2, 3, 5, 1, 3]
+    extraCandies = 3
+    solution = Solution()
+    result = solution.kidsWithCandies(candies, extraCandies)
+    print(result)  # Output: [True, True, True, False, True]
+
+
+print("----------------------------------------------------------------------")
+
+
+class Solution(object):
+    def canPlaceFlowers(self, flowerbed, n):
+        """
+        :type flowerbed: List[int]
+        :type n: int 
+        :rtype: bool 
+        """
+        count = 0  # Count of flowers we can plant
+        i = 0  # Pointer to traverse the flowerbed
+        
+        while i < len(flowerbed):
+            # Check if the current spot is empty and the adjacent spots are also empty or out of bounds
+            if flowerbed[i] == 0 and (i == 0 or flowerbed[i - 1] == 0) and (i == len(flowerbed) - 1 or flowerbed[i + 1] == 0):
+                flowerbed[i] = 1  # Plant a flower
+                count += 1  # Increment the count of flowers planted
+            
+            i += 1  # Move to the next spot
+        
+        return count >= n  # Check if we can plant at least n flowers
+
+# Example usage
+if __name__ == '__main__':
+    solution = Solution()
+    flowerbed = [1, 0, 0, 0, 1]
+    n = 1
+    result = solution.canPlaceFlowers(flowerbed, n)
+    print(result)  # Output: True
+
+    n = 2
+    result = solution.canPlaceFlowers(flowerbed, n)
+    print(result)  # Output: False
+
+
+
+
+
+
+
+
+print("----------------------------------------------------------------------")
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+class VendingMachine:
+    def __init__(self, num_items, item_coins):
+        # Initialize the vending machine with number of items and coins
+        self.num_items = num_items
+        self.item_coins = item_coins
+
+    def buy(self, num_items, num_coins):
+        # Check if enough items are available
+        if num_items > self.num_items:
+            raise ValueError("Not enough items available")
+        
+        # Calculate the total cost of the items
+        cost = num_items
+        
+        # Check if enough coins are provided
+        if num_coins < cost:
+            raise ValueError("Insufficient coins")
+        
+        # Calculate change
+        change = num_coins - cost
+        
+        # Update the inventory
+        self.num_items -= num_items
+        
+        return change
+
+if __name__ == '__main__':
+    
+
+    num_items, item_coins = map(int, input().split())
+    machine = VendingMachine(num_items, item_coins)
+
+    n = int(input())
+    for _ in range(n):
+        num_items, num_coins = map(int, input().split())
+        try:
+            change = machine.buy(num_items, num_coins)
+            print(str(change) + "\n")
+        except ValueError as e:
+            print(str(e) + "\n")
+
+    
